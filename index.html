@@ -1,0 +1,883 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Chez moi ça marche !</title>
+
+		<meta name="description" content="L'open data et après ? L'open government">
+		<meta name="author" content="Team Jolicode et Simon Perdrisat">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<link href="css/convergence.css" rel="stylesheet" type="text/css">
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/night.css" id="theme">
+		<link rel="stylesheet" href="css/style.css">
+
+		<!-- For syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- If the query includes 'print-pdf', use the PDF print sheet -->
+		<script>
+			document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+
+
+
+				<section class="center future" style="top: -290.5px; display: block;">
+          <h1>L'open data et après ? <br /><br />l'open government ou "SmartGov"</h1>
+					<div class="spacer"></div>
+					<h3>AFUP - PHP Tour Nantes - Edition 2012</h3>
+					<img src="./images/logo-phptournantes.png" class="simple">
+					<div class="spacer"></div>
+				</section>
+
+				<section style="top: -267px; display: block;" class="present">
+					<h2 class="center">Coucou !</h2>
+					<div class="spacer"></div>
+					<h3>Bastien Jaillot  – JoliCode</h3>
+					<p><img src="./images/twitter.png" class="simple inline">@bastnic</p>
+
+					<div class="spacer"></div>
+					<h3>Simon Perdrisat – Antistatique.net</h3>
+					<p><img src="./images/twitter.png" class="simple inline">@gagarine</p>
+
+					<div class="spacer"></div>
+          <p><a href="http://democratieouverte.org">http://democratieouverte.org</a></p>
+				</section>
+
+				<section class="center future" style="top: -326px; display: block;">
+					<img src="./images/logo-jolicode.png" class="logo">
+					<br>
+					<img src="./images/nyan-pony.gif" class="simple inline">
+				</section>
+
+				<section class="center future" style="top: -20px; display: block;">
+          <h3 class="center">Il parait que nous sommes en <strong>crise</strong>.<br /><br />
+            Je préfère parler de <strong>changement</strong>...</h3>
+				</section>
+
+				<section class="center future" style="top: -20px; display: none;">
+          <ul>
+            <li>pays en faillite : Grèce, Espagne, Italie</li>
+            <li>printemps arabe : Egypte, Tunisie, Libye</li>
+            <li>printemps érable : Québec</li>
+            <li>Occupy Wall Street : USA</li>
+            <li>Mouvement des indignés : Espagne</li>
+            <li>la Belgique sans gouvernement</li>
+            <li>la plupart des pays occidentaux (sauf USA) ont changé de bord aux dernières élections</li>
+            <li>guerre Israel/Palestine</li>
+          </ul>
+				</section>
+
+				<section class="center future" style="top: -20px; display: none;">
+          <ul>
+            <li>abstention croissante</li>
+            <li>crise de la représentativité</li>
+            <li>disparition classe moyenne</li>
+            <li>des sociétés engrangent des milliards de bénéfices par mois</li>
+            <li>dérèglement climatique</li>
+            <li>le cirque des élections du président de l'UMP</li>
+            <li>Notre-Dame des Landes</li>
+          </ul>
+				</section>
+
+				<section class="center future" style="top: -20px; display: block;">
+          <h3 class="center">Essayons de comprendre</h3>
+				</section>
+
+				<section class="center future" style="top: -20px; display: block;">
+          <h3 class="center">Notre démocratie à la française ?</h3>
+				</section>
+
+				<section class="center">
+					<div class="center">
+						<img src="./images/Schema_pouvoirs_Ve_republique_France.png">
+					</div>
+				</section>
+
+
+
+				<section class="center">
+					<h2 class="center">Transparence // sources d'information</h2>
+					<div class="spacer"></div>
+          <ul>
+            <li>les journaux, les interviews, sites institutionnels</li>
+            <li>blogs, facebook, <strong>twitter</strong><br /> </li>
+
+            <li>les données produites de plus en plus ouvertes (<strong>#opendata</strong>) / dataviz / datajournalisme / data.</li>
+
+            <li>monitoring de l'AN et du Sénat par Regards Citoyens</li>
+          </ul>
+				</section>
+
+        <section class="center future" style="top: -20px; display: block;">
+          <h3 class="center">Observer c'est bien…<br />
+            Encore faut-il <strong>comprendre</strong> !</h3>
+				</section>
+
+        <section class="center future" style="top: -20px; display: block;">
+          <h3 class="center">Formats, métadonnées, <br />algorithmes, processus</h3>
+				</section>
+
+				<section style="top: -267px; display: block;" class="present">
+					<h2 class="center">Un mot sur l'open data</h2>
+					<div class="spacer"></div>
+          <blockquote>
+            les données publiques seront rendues accessibles et gratuites sur le site data.gouv.fr
+            afin de renforcer la <strong>transparence</strong> de l'action publique et permettre le développement,
+            notamment par les entreprises, de <strong>produits et services</strong> reposant sur l'exploitation
+            de ces données
+          </blockquote>
+					<div class="spacer"></div>
+          <p class="center">
+            <small>
+              <a href="http://data.blog.lemonde.fr/2012/11/22/ou-en-est-lopen-data-gouvernemental/">
+                http://data.blog.lemonde.fr/2012/11/22/ou-en-est-lopen-data-gouvernemental/
+              </a>
+            </small>
+          </p>
+				</section>
+
+        <section class="center future" style="top: -20px; display: block;">
+          <h3 class="center">De la compréhension peut naitre l'envie de<br />
+            <strong>participer</strong></h3>
+          <div class="spacer"><div>
+          <p>… et la réciproque : l'envie de participer nécessite de comprendre (*)</p>
+          <div class="spacer"><div>
+          <p class="left">
+            <small>(*) : Sinon on est rapidement pris pour un noob, #RTFM</small>
+          </p>
+				</section>
+
+
+				<section class="center">
+					<h2 class="center">Illusion de "participation"</h2>
+					<div class="spacer"></div>
+          <ul>
+            <li>agir dans la politique // nécessite souvent une investiture pour être vraiment un acteur</li>
+            <li>"communiquer" avec son élu</li>
+            <li>voter (une fois tous les x années, et avec le mode de scrutin français… … … … ça renforce les gros partis)</li>
+            <li>saisir la Cour de Cassation</li>
+            <li>...</li>
+            <li class="fragment"><strong>raler</strong></li>
+          </ul>
+				</section>
+
+				<section class="center">
+					<h2 class="center">Vous-restez sur votre faim ?</h2>
+					<div class="spacer"></div>
+          <p class="right">… nous aussi</p>
+				</section>
+
+
+				<section class="center">
+          <h3 class="center">Bien souvent nous <strong>consommons</strong> simplement du service public.</h3>
+				</section>
+
+
+				<section class="center">
+          <h3 class="center">Nos institutions rendent difficile l'accès à la compréhension, et quasi impossible l'accès à la participation</h3>
+					<div class="spacer"></div>
+          <p>… ça ne se passe pas comme ça partout.</p>
+				</section>
+
+
+				<section class="center">
+          <h2 class="center">We love to hack!</h2>
+				</section>
+
+				<section class="">
+					<h2 class="center">Nos outils sont open source !</h2>
+					<div class="spacer"></div>
+          <p> … et au quotidien :</p>
+          <ul>
+            <li>on les utilise</li>
+            <li>si on a un problème, on le signale (bug)</li>
+            <li>on peut récupérer le code</li>
+            <li>on peut comprendre comment il fonctionne</li>
+            <li>proposer un patch (pull request FTW)</li>
+            <li>un core contributeur commite ou itère</li>
+          </ul>
+				</section>
+
+
+				<section class="">
+					<h2 class="center">Nos outils sont open source !</h2>
+					<div class="spacer"></div>
+          <p> … et au quotidien :</p>
+          <ul>
+            <li>on les utilise</li>
+            <li>si on a un problème, on le signale (bug)</li>
+            <li>on peut récupérer le code <strong>TRANSPARENCE</strong></li>
+            <li>on peut comprendre comment il fonctionne</li>
+            <li>proposer un patch (pull request FTW) <strong>PARTICIPATION</strong></li>
+            <li>un core contributeur commite ou itère <strong>COLLABORATION</strong></li>
+          </ul>
+				</section>
+
+
+				<section class="center">
+					<div class="center">
+						<img src="./images/linux-kernel-map.jpg">
+					</div>
+				</section>
+
+
+				<section class="">
+					<h2 class="center">Collaboration</h2>
+					<div class="spacer"></div>
+          <p>Tout système tend à se complexifier. Ce n'est pas forcément un problème.</p>
+          <p>Mais un système qui se dévelope sans collaboration n'est pas viable.</p>
+				</section>
+
+				<section class="center">
+					<h2 class="center">Open Government</h2>
+					<div class="spacer"></div>
+          <h3>transparence & collaboration & participation</h3>
+          <p>(dans la gouvernance)</p>
+				</section>
+
+				<section class="center">
+					<h2 class="center">Initié par l'administration Obama</h2>
+				</section>
+
+				<section class="center">
+          <h2 class="center">OpenGovPartnership :</h2>
+          <h3>tous les pays… </h3>
+					<div class="spacer"></div>
+          <p class="center">
+            <small>
+              <a href="http://www.opengovpartnership.org/">
+                http://www.opengovpartnership.org/
+              </a>
+            </small>
+          </p>
+				</section>
+
+				<section class="center">
+          <h2 class="center">… sauf les francophones !</h2>
+					<div class="spacer"></div>
+          <div>
+						<img src="./images/opengovpartnership.png" class="simple" />
+					</div>
+				</section>
+
+
+				<section style="" class="">
+          <blockquote>
+            The Open Government Partnership is a global effort to <strong>make governments better</strong>. We all want more transparent, effective and accountable governments -- with institutions that empower citizens and are responsive to their aspirations. But this work is never easy.
+
+            It takes political leadership. It takes technical knowledge. It takes sustained effort and investment. <strong>It takes collaboration between governments and civil society</strong>.
+          </blockquote>
+					<div class="spacer"></div>
+          <p class="center">
+            <small>
+              <a href="http://www.opengovpartnership.org/about">
+                http://www.opengovpartnership.org/about
+              </a>
+            </small>
+          </p>
+				</section>
+				<section style="" class="">
+          <p>la démocratie ouverte cherche à <strong>améliorer l'efficacité et la légitimité des modes de gouvernances</strong> de notre société. </p>
+          <div class="spacer"></div>
+          <blockquote>
+La Loi est l’expression de la volonté générale. Tous les citoyens ont droit de concourir personnellement, ou par leurs représentants, à sa formation.
+          </blockquote>
+          <p class="right"><small>Article VI de la déclaration des droits de l'homme et du citoyen</small></p>
+					<div class="spacer"></div>
+          <p class="center">
+            <small>
+              <a href="http://www.opengovpartnership.org/about">
+                http://www.opengovpartnership.org/about
+              </a>
+            </small>
+          </p>
+				</section>
+
+
+				<section class="center">
+					<div class="center">
+						<img src="./images/democratie-ouverte.png">
+					</div>
+          <p class="center">
+            <small>
+              <a href="http://fr.wikipedia.org/wiki/Fichier:D%C3%A9mocratie_Ouverte.png">
+                http://fr.wikipedia.org/wiki/Fichier:D%C3%A9mocratie_Ouverte.png
+              </a>
+            </small>
+          </p>
+          <p class="center">
+            <small>
+              <a href="http://democratieouverte.org/open-blog/les-3-piliers-de-la-democratie-ouverte-1-la-transparence">
+                http://democratieouverte.org/open-blog/les-3-piliers-de-la-democratie-ouverte-1-la-transparence
+              </a>
+            </small>
+          </p>
+				</section>
+
+				<section class="center">
+          <h2>La charte Démocratie Ouverte</h2>
+					<div class="spacer"></div>
+          <ul>
+            <li>10 points sur les principes, philosophie et engagements des membres du collectif</li>
+            <li>en cours de rédaction</li>
+            <li>bientôt publiée !</li>
+          </ul>
+          <p class="center">
+            <small>
+              <a href="http://xav.cc/democratieouverte-charte">
+                http://xav.cc/democratieouverte-charte
+              </a>
+            </small>
+          </p>
+				</section>
+
+
+				<section class="center">
+          <h3>Des services décentralisés basés sur des technologies ouvertes communicant grâce à des protocoles standardisés.</h3>
+					<div class="spacer"></div>
+          <p class="center">
+... geeks and robots know this is sweet, politicians and gov don't (yet).
+          </p>
+				</section>
+
+        <section class="center">
+          <h2>Déjà beaucoup d'acteurs !</h2>
+					<div class="center">
+						<img src="./images/acteurs.png">
+					</div>
+				</section>
+
+				<section class="center">
+          <h3>Tentatives de création d'outils</h3>
+				</section>
+
+
+				<section class="">
+					<h2 class="center">USA – IT Dashboard</h2>
+					<div class="spacer"></div>
+          <ul>
+            <li>Visibilité sur les $80 milliards d'investissement IT</li>
+            <li>"Day one" : $27 milliards de projet IT en retard et hors budgets</li>
+            <li>revue de 38 projets prioritaires</li>
+            <li>4 projets terminés</li>
+            <li>11 ont eu une réduction de périmètre</li>
+            <li>Gain : <strong>$3 milliards de dollars</strong></li>
+          </ul>
+					<div class="spacer"></div>
+          <p class="left">
+            <small>
+              <a href="http://www.itdashboard.gov">
+                http://www.itdashboard.gov
+              </a>
+            </small>
+          </p>
+				</section>
+
+				<section class="">
+					<h2 class="center">USA – Challenges.gov</h2>
+					<div class="spacer"></div>
+          <p>Concours de crowdsourcing pour que le <strong>public</strong> et l'<strong>État</strong> résolvent <strong>ensemble</strong> des problèmes de sociétés cruciaux.</p>
+          <ul>
+            <li>recherche de solutions pour améliorer l'accès à la compréhension des premiers secours</li>
+            <li>recherche d'idées innovantes pour permettre l'accès à de nouveaux emplois aux personnes handicapés</li>
+          </ul>
+					<div class="spacer"></div>
+          <p class="left">
+            <small>
+              <a href="http://challenge.gov/">http://challenge.gov/</a>
+            </small>
+          </p>
+				</section>
+
+				<section class="">
+					<h2 class="center">USA – NASA Open Government Plan</h2>
+					<div class="spacer"></div>
+          <blockquote>
+            The key principles of Open Government – participation, collaboration and transparency -
+            have been embedded in NASA operations for more than 50 years. […] <strong>to serve as a model
+              – not a manual</strong> – for what a more open NASA might look like today. […] and <strong>provides
+              citizens the opportunity to respond and engage</strong>.
+            </blockquote>
+					<div class="spacer"></div>
+          <p class="left">
+              <a href="http://open.nasa.gov/plan/">http://open.nasa.gov/plan/</a> – outils pour les citoyens scientifiques
+          </p>
+				</section>
+
+        <section class="center">
+          <h2>Québec – Budget Citoyen</h2>
+					<div class="center">
+						<img src="./images/budget-plateau.png">
+					</div>
+          <div class="spacer"></div>
+          <p class="center">
+            <small>
+              <a href="http://budgetplateau.com/ ">
+                http://budgetplateau.com/
+              </a>
+            </small>
+          </p>
+          <p class="center">
+            <small>
+              <a href="http://www.budgetcitoyen.com/">
+                http://www.budgetcitoyen.com/
+              </a>
+            </small>
+          </p>
+				</section>
+
+        <section class="center">
+          <h2>Comprenez les enjeux de la réforme fiscale et PROPOSEZ !</h2>
+          <div class="spacer"></div>
+          <p>Comprendre, essayer, simuler, pour essayer de préparer ensemble un "impot sur le revenu pour le XXIè siècle.</p>
+          <p class="center">
+            <small>
+              <a href="http://www.revolution-fiscale.fr/">http://www.revolution-fiscale.fr/</a>
+            </small>
+          </p>
+				</section>
+
+        <section class="center">
+          <h2>DE – Loi over git</h2>
+          <div class="spacer"></div>
+          <p>German Federal Laws and Regulations – <a href="https://github.com/bundestag/gesetze">https://github.com/bundestag/gesetze</a></p>
+					<div class="center">
+						<img src="./images/gesetze.png">
+					</div>
+				</section>
+
+
+        <section class="center">
+          <h2>FR – Fact Checking </h2>
+          <div class="spacer"></div>
+          <ul>
+            <li>Voxe : <a href="http://voxe.org/">http://voxe.org/</a></li>
+            <li>Véritomètre : <a href="http://itele.owni.fr/">http://itele.owni.fr/</a></li>
+            <li>Vigie2012 : <a href="http://vigie2012.eu/">http://vigie2012.eu/</a></li>
+            <li>Baromêtre Hollande : <a href="http://barometrehollande.fr/">http://barometrehollande.fr/</a></li>
+            <li>…</li>
+          </ul>
+				</section>
+
+        <section class="center">
+          <h2>FR – Regards citoyens</h2>
+          <div class="spacer"></div>
+          <ul>
+            <li>traitement en masse de données textuelles publiques sur les sites de l'Assemblée et du Sénat</li>
+            <li>une application PHP + données libres + API</li>
+            <li>beaucoup de bonnes volontés  </li>
+            <li><a href="http://www.regardscitoyens.org/">http://www.regardscitoyens.org/</a></li>
+            <li>…</li>
+          </ul>
+				</section>
+
+        <section class="center">
+          <h2>DE – Parliament Watch</h2>
+          <div class="spacer"></div>
+          <ul>
+            <li>300 000 visites mensuelles,</li>
+            <li>125 000 questions de citoyens,</li>
+            <li><strong>100 000</strong> réponses d'élus,</li>
+            <li>20 partenariats médias</li>
+            <li><a href="http://www.abgeordnetenwatch.de/">http://www.abgeordnetenwatch.de/</a></li>
+            <li>Bientôt en France : <a href="http://parliamentwatch.fr/">http://parliamentwatch.fr/</a></li>
+          </ul>
+				</section>
+
+        <section class="center">
+          <h2>Conclusion temporaire</h2>
+          <div class="spacer"></div>
+          <ul>
+            <li>Intelligence collective</li>
+            <li>Développements logiciels "simples" mais fortes conséquences</li>
+            <li>Réutilisations possibles dans d'autres pays</li>
+          </ul>
+				</section>
+
+        <section class="center">
+          <h2>(notre projet)</h2>
+          <div class="spacer"></div>
+					<div>
+						<img src="./images/parlement-citoyen.png" class="simple" />
+					</div>
+				</section>
+
+        <section class="center">
+          <h2>un postulat : <br />accompagner l'élu</h2>
+          <h3>Il est élu, mais ne sait pas tout pour autant. <br />Aidons-le à faire avancer le schmilblick</h3>
+          <div class="spacer"></div>
+				</section>
+
+        <section class="center">
+          <h3>Plutôt que de critiquer ceux qui font mal,<br /> <strong>aidons</strong> ceux qui font <strong>bien</strong></h3>
+          <div class="spacer"></div>
+				</section>
+
+        <section class="center">
+          <h3>1 élu + 2 conseillers + x(?) lobyistes en toute OPACITÉ(*)</h3>
+          <div class="spacer"></div>
+          <p>ce n'est pas <strong>suffisant</strong> !</p>
+          <div class="spacer"></div>
+          <p class="left"><small>(*) : et inefficacité…</small></p>
+				</section>
+
+
+        <section class="center">
+          <h2>Concrètement</h2>
+          <div class="spacer"></div>
+
+          <ul>
+            <li>tout le monde est encouragé à donner son avis</li>
+            <li>aucune vocation à être représentatif </li>
+            <li>l'objectif est d'apporter de la valeur à priori, plutôt que raler à posteriori</li>
+            <li>donne une voix de lobyiste à tout un chacun</li>
+          </ul>
+				</section>
+
+
+        <section class="center">
+          <h2>Sur un sujet particulier…</h2>
+          <div class="spacer"></div>
+
+          <p>un parlementaire lance une consultation en vue de rédiger une proposition de loi</p>
+          <ul>
+            <li>Quel <strong>problème</strong> cherchez vous à résoudre ?</li>
+            <li>Quelle(s) <strong>solution</strong>(s) envisagez-vous mettre en place par la loi ?</li>
+            <li>Quel(s) <strong>moyen</strong>(s) seront nécessaires pour mettre en place la solution ?</li>
+            <li>Quel(s) <strong>résultat</strong>(s) attendez-vous ?</li>
+          </ul>
+				</section>
+
+        <section>
+          <h2 class="center">Sur un sujet particulier…</h2>
+          <div class="spacer"></div>
+
+          <ul>
+            <li>partage et notation de sources</li>
+            <li>chacun peut déposer un avis</li>
+          </ul>
+
+          <div class="spacer"></div>
+          <p>La différence se fait dans la définition même d'un "avis" : on réponds à TOUS les points précédents : </p>
+          <ul>
+            <li>on peut-être d'accord avec le problème et la solution</li>
+            <li>mais ne pas l'être avec les moyens</li>
+          </ul>
+				</section>
+
+        <section class="center">
+					<div>
+						<img src="./images/smartgovapp-1.png" class="simple" />
+					</div>
+				</section>
+
+        <section class="center">
+					<div>
+						<img src="./images/smartgovapp-2.png" class="simple" />
+					</div>
+				</section>
+        <section class="center">
+					<div>
+						<img src="./images/smartgovapp-3.png" class="simple" />
+					</div>
+				</section>
+        <section class="center">
+					<div>
+						<img src="./images/smartgovapp-4.png" class="simple" />
+					</div>
+				</section>
+        <section class="center">
+					<div>
+						<img src="./images/smartgovapp-5.png" class="simple" />
+					</div>
+				</section>
+        <section class="center">
+					<div>
+						<img src="./images/smartgovapp-6.png" class="simple" />
+					</div>
+				</section>
+        <section class="center">
+					<div>
+						<img src="./images/smartgovapp-7.png" class="simple" />
+					</div>
+				</section>
+        <section class="center">
+					<div>
+						<img src="./images/smartgovapp-8.png" class="simple" />
+					</div>
+				</section>
+        <section class="center">
+					<div>
+						<img src="./images/smartgovapp-9.png" class="simple" />
+					</div>
+				</section>
+        <section class="center">
+					<div>
+						<img src="./images/smartgovapp-10.png" class="simple" />
+					</div>
+				</section>
+        <section class="center">
+					<div>
+						<img src="./images/smartgovapp-11.png" class="simple" />
+					</div>
+				</section>
+
+        <section class="center">
+          <h2>De plus…</h2>
+          <div class="spacer"></div>
+
+          <ul>
+            <li>animation</li>
+            <li>comité scientifique</li>
+            <li>réseau d'expert</li>
+            <li>déclinaisons locales</li>
+            <li>configurable</li>
+            <li>… plein de choses à faire !</li>
+          </ul>
+				</section>
+
+        <section>
+          <h2 class="center">Techniquement</h2>
+          <div class="spacer"></div>
+          <p>Basé sur Drupal : </p>
+
+          <ul>
+            <li>facilement déployable</li>
+            <li>très connu des administrations</li>
+            <li>PHP / MySQL comme seuls pré-requis (*)</li>
+            <li>intégrable dans une logique d'usine à sites</li>
+            <li>extensible</li>
+          </ul>
+          <div class="spacer"></div>
+          <p><small>(*) : + memcache, solr, fabric, drush (on se comprends)</small></p>
+				</section>
+
+        <section>
+          <h2 class="center">Techniquement (sous le capot)</h2>
+          <div class="spacer"></div>
+          <p>Grosse utilisation des <strong>entities</strong> et des bundles pour constuire un système générique de "meta proposition" + meta données => des "métas réponses".</p>
+
+          <ul>
+            <li>Entities</li>
+            <li>Services</li>
+            <li>Search API</li>
+            <li>…</li>
+          </ul>
+				</section>
+
+        <section>
+          <h2 class="center">Interactions</h2>
+          <div class="spacer"></div>
+          <p>Utilisation de sémantique pour s'interfacer avec </p>
+
+          <ul>
+            <li>ce qui se passe déjà à l'AN (NosDeputes)</li>
+            <li>ce que les individus souhaitent (parliament watch)</li>
+            <li>les mêmes outils, mais dans les autres pays</li>
+            <li>vos créations ?</li>
+          </ul>
+				</section>
+
+        <section>
+          <h2 class="center">PHP dans tout ça ?</h2>
+          <div class="spacer"></div>
+
+          <ul>
+            <li>IT Dashboard : Drupal</li>
+            <li>Parliament Watch : Drupal</li>
+            <li>Regard Citoyens : symfony 1.4</li>
+            <li>Parlement & Citoyens : Drupal</li>
+          </ul>
+          <div class="spacer"></div>
+          <p>PHP est un écosystème, vous pouvez construire ce que vous voulez dessus</p>
+				</section>
+
+        <section>
+          <h2 class="center">L'avantage ?</h2>
+          <div class="spacer"></div>
+
+          <p>Vous pouvez tous ici participer à l'amélioration de notre mode de gouvernance avec votre connaissance PHP.</p>
+				</section>
+
+        <section class="center">
+          <h2>Technique < Usage</h2>
+          <h3>(Rasmus lui-même le disait <br />en ouverture de PHP 20??)</h3>
+				</section>
+
+
+        <section>
+          <h2 class="center">Utilisez vos connaissances pour construire (ensemble) un monde meilleur</h2>
+          <div class="spacer"></div>
+
+          <p><small>(et pas uniquement dépenser des budgets marketing)</small></p>
+				</section>
+
+        <section>
+          <h2 class="center">Conclusion finale</h2>
+				</section>
+
+
+        <section>
+          <ul>
+            <li>
+              Aux décideurs publics
+              <ul>
+                <li>N'ayez pas peur d'expérimenter</li>
+                <li>Développez les API à double sens et universellement accessibles</li>
+                <li>Concevez ensemble une stratégie cohérente Europe/National/Territorial</li>
+                <li>Donnez-vous les moyens (OpenGov Team)</li>
+                <li>Partagez vos expériences</li>
+              </ul>
+            </li>
+            <li>
+              Aux citoyens
+              <ul>
+                <li>Challengez mais respecter les institutions</li>
+                <li>Accompagnez vos élus sans les agresser</li>
+                <li>Concevez ensemble une stratégie cohérente Europe/National/Territorial</li>
+                <li>Donnez-vous les moyens (OpenGov Team)</li>
+                <li>Partagez vos expériences</li>
+              </ul>
+            </li>
+            <li>
+              À tous
+              <ul>
+                <li>Ouvrez grand vos yeux et vos oreilles : il se passe quelque chose !</li>
+                <li>Développez une confiance à double sens</li>
+                <li><strong>Programmez ou soyez programmé</strong></li>
+              </ul>
+            </li>
+          </ul>
+				</section>
+
+
+
+
+
+
+
+
+
+        <section class="center">
+          <h2>gouvernement ouvert <br />
+            +<br />
+            couche d'intelligence dans la participation et la collaboration </h2>
+          <div class="fragment">
+            <h3>= <br />SmartGov</h3>
+            <p><small>#Marketing powa!</small></p>
+        </div>
+				</section>
+
+        <section class="center">
+          <h2>PS : n'oubliez pas qu'au delà d'être citoyen français, nous sommes également européen !</h2>
+          <h3>… mais je n'ai pas eu le temps d'en parler</h3>
+				</section>
+
+				<section>
+					<h2 class="center">Merci !</h2>
+				</section>
+
+				<section>
+					<h2 class="center">Des questions ?</h2>
+					<div class="spacer"></div>
+					<p>http://github.com/jolicode/opengov-conf</p>
+					<ul>
+						<li>Bastien Jaillot - @bastnic</li>
+						<li>Simon Perdrisat - @gagarine</li>
+						<li>JoliCode - @jolicode</li>
+					</ul>
+				</section>
+
+
+        <section>
+					<h2 class="center">Références</h2>
+					<div class="spacer"></div>
+					<ul>
+            <li>Schéma Démocratie Ouverte<br />
+              <a href="http://democratieouverte.org/open-blog/les-3-piliers-de-la-democratie-ouverte-1-la-transparence">http://democratieouverte.org/open-blog/les-3-piliers-de-la-democratie-ouverte-1-la-transparence</a></li>
+            <li>Schéma "pouvoirs de la Vè République Française <br />
+            <a href="http://fr.wikipedia.org/wiki/Fichier:Schema_pouvoirs_Ve_republique_France.png">http://fr.wikipedia.org/wiki/Fichier:Schema_pouvoirs_Ve_republique_France.png</a></li>
+            <li>TED : Clay Shirky: How the Internet will (one day) transform government<br />
+            <a href="http://www.ted.com/talks/clay_shirky_how_the_internet_will_one_day_transform_government.html">http://www.ted.com/talks/clay_shirky_how_the_internet_will_one_day_transform_government.html</a></li>
+					</ul>
+				</section>
+
+
+
+        <section>
+					<h2 class="center">Références</h2>
+					<div class="spacer"></div>
+					<ul>
+            <li>Conférence “Open Governement" par Lancelot Pecquet (membre de Démocratie Ouverte) à l'OWF<br /><a href="http://www.youtube.com/watch?v=xblYr6YEAmY">http://www.youtube.com/watch?v=xblYr6YEAmY</a></li>
+            <li>TED : Beth Noveck: Demand a more open-source government<br /><a href="http://www.ted.com/talks/beth_noveck_demand_a_more_open_source_government.html">http://www.ted.com/talks/beth_noveck_demand_a_more_open_source_government.html</a></li>
+            <li>Open Government Partnership<br />
+            <a href="http://www.opengovpartnership.org/ ">http://www.opengovpartnership.org/ </a></li>
+					</ul>
+				</section>
+
+
+        <section>
+					<h2 class="center">Références</h2>
+					<div class="spacer"></div>
+					<ul>
+            <li>Démocratie Ouverte<br /><a href="http://democratieouverte.org/">http://democratieouverte.org/</a></li>
+            <li>GitLaw<br /><a href="http://news.ycombinator.com/item?id=3967921">http://news.ycombinator.com/item?id=3967921</a></li>
+            <li>Smart Gouvernance<br />
+            <a href="http://ot.ge.ch/ot/article.php3?id_article=148">http://ot.ge.ch/ot/article.php3?id_article=148</a><br />
+            <a href="http://www.ot-lab.ch/">http://www.ot-lab.ch/</a></li>
+					</ul>
+				</section>
+			</div>
+
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.min.js"></script>
+
+		<script>
+
+			// Full list of configuration options available here:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+				transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/none
+
+				// Optional libraries used to extend on reveal.js
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/showdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+					{ src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+					// { src: 'plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>
