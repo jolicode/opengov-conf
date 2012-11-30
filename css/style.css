@@ -51,3 +51,7 @@
 strong {
   color: #F7D325;
 }
+
+.reveal section li {
+  margin-bottom: 5px;
+}
